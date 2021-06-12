@@ -1,11 +1,11 @@
 require './lib/key'
 
 RSpec.describe Key do
-  describe 'instantiation' do
-    it 'exists' do
-      key = Key.new
-      
-      expect(key).to be_an_instance_of(Key)
+  describe 'generate' do
+    it 'can generate a random 5 digit key' do
+      key = Key.generate
+      expect(key).to be_an(Array)
+      expect(key.first).to be_a(String)
     end
   end
 end
