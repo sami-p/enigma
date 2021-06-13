@@ -18,9 +18,10 @@ module Shiftable
     joined = cons.map do |con|
       [con.join.to_i]
     end
+    joined.flatten
   end
 
-  def shift(key_array, offset)
-    
+  def set_shift(key_array, offset)
+    [key_array, offset].transpose.map { |sub| sub.inject(:+) }
   end
 end
