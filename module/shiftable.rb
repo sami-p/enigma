@@ -10,11 +10,17 @@ module Shiftable
     end
   end
 
-  def key_arrays(key)
+  def key_array(key)
     split = key.split(//)
     integers = split.map { |element| element.to_i }
     cons = []
     integers.each_cons(2) { |integer| cons << integer }
-    cons
+    joined = cons.map do |con|
+      [con.join.to_i]
+    end
+  end
+
+  def shift(key_array, offset)
+    
   end
 end

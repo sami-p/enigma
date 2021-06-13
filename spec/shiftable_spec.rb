@@ -12,7 +12,7 @@ RSpec.describe Shiftable do
   it 'can split key into four sub arrays' do
     @enigma = Enigma.new
     key = '47893'
-    
-    expect(@enigma.key_arrays(key)).to eq([[4, 7], [7, 8], [8, 9], [9, 3]])
+
+    expect(@enigma.key_array(key)).to eq([[47], [78], [89], [93]])
   end
 end
