@@ -1,6 +1,12 @@
 require './spec/spec_helper'
+require '../module/shiftable'
 
 class Enigma
+
+  include Shiftable
+
+  attr_reader :key,
+              :date
 
   def initialize
     @key = Key.generate
