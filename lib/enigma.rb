@@ -8,13 +8,11 @@ class Enigma
   attr_reader :key,
               :date,
               :alphabet
-              # :shift
 
   def initialize
     @alphabet = ("a".."z").to_a << " "
     @key = Key.generate
     @date = Date.today.strftime("%d%m%y")
-    # @shift = []
   end
 
   def encrypt(message, key = @key, date = @date)
