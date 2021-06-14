@@ -36,6 +36,25 @@ class Enigma
     hash
   end
 
+  def decrypt(message, key = @key, date = @date)
+    hash = Hash.new
+    hash[:decryption] = message
+    hash[:key] = key
+    hash[:date] = date
+    @offset = offset(hash[:date])
+    @key_array = key_shift(hash[:key])
+    encrypted = ''
+    message.chars.each_with_index do |char, index|
+      letter_index = @alphabet.reduce(0) do |value, letter|
+        value += @alphabet.index(letter) if char == letter
+        value
+      end
+      encrypted << @alphabet.rotate(letter_index - shift_char(char, index))[0]
+    end
+    hash[:decryption] = encrypted
+    hash
+  end
+
   def shift_char(char, index)
     remainder = index % 4
     if @alphabet.include?(char)

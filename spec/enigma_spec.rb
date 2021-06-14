@@ -27,19 +27,29 @@ RSpec.describe Enigma do
   describe 'methods' do
     xit 'can shift characters based on index' do
 
-      # do something to the something
+      # do the thing to the something
 
       expect(@enigma.shift_char(char, index)).to eq('k')
     end
 
     it 'encrypts a message' do
-      text = ({
+      expected = ({
                 encryption: "keder ohulw",
                 key: "02715",
                 date: "040895"
               })
 
-      expect(@enigma.encrypt("hello world", "02715", "040895")).to eq(text)
+      expect(@enigma.encrypt("hello world", "02715", "040895")).to eq(expected)
+    end
+
+    it 'can decrypt a message' do
+      expected = {
+                  decryption: "hello world",
+                  key: "02715",
+                  date: "040895"
+                 }
+
+      expect(@enigma.decrypt("keder ohulw", "02715", "040895")).to eq(expected)
     end
   end
 end
