@@ -1,6 +1,6 @@
 module Shiftable
 
-  def offset(date)
+  def set_offset(date)
     integer = date.to_i
     squared = integer ** 2
     string = squared.to_s
@@ -20,6 +20,7 @@ module Shiftable
     end
     joined.flatten
   end
+
 
   def set_shift(key_array, offset)
     [key_array, offset].transpose.map { |sub| sub.inject(:+) }

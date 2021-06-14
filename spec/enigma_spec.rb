@@ -22,17 +22,24 @@ RSpec.describe Enigma do
       expect(@enigma.alphabet).to be_an(Array)
       expect(@enigma.alphabet.length).to eq(27)
     end
+  end
 
-    xit 'encrypts a message' do
-      enigma = Enigma.new
+  describe 'methods' do
+    xit 'can shift characters based on index' do
 
+      # do something to the something
+
+      expect(@enigma.shift_char(char, index)).to eq('k')
+    end
+
+    it 'encrypts a message' do
       text = ({
                 encryption: "keder ohulw",
                 key: "02715",
                 date: "040895"
               })
 
-      expect(enigma.encrypt("hello world", "02715", "040895")).to eq(text)
+      expect(@enigma.encrypt("hello world", "02715", "040895")).to eq(text)
     end
   end
 end
