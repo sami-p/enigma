@@ -14,11 +14,16 @@ RSpec.describe Enigma do
       expect(@enigma.key.length).to eq(5)
     end
 
-    it 'can turn date into string' do
+    it 'takes a date as a string' do
       expect(@enigma.date).to be_a(String)
     end
 
-    it 'encrypts a message' do
+    it 'is initialized with a 27 character alphabet' do
+      expect(@enigma.alphabet).to be_an(Array)
+      expect(@enigma.alphabet.length).to eq(27)
+    end
+
+    xit 'encrypts a message' do
       enigma = Enigma.new
 
       text = ({
@@ -27,7 +32,7 @@ RSpec.describe Enigma do
                 date: "040895"
               })
 
-    expect(enigma.encrypt("hello world", "02715", "040895")).to eq(text)
+      expect(enigma.encrypt("hello world", "02715", "040895")).to eq(text)
     end
   end
 end

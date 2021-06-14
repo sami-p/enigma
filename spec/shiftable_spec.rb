@@ -17,7 +17,7 @@ RSpec.describe Shiftable do
     expect(@enigma.key_array(key)).to eq([47, 78, 89, 93])
   end
 
-  it 'can create shift nums' do
+  it 'can set shift counts' do
     offset = [5, 6, 4, 1]
     key_array = [47, 78, 89, 93]
 
