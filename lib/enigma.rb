@@ -1,5 +1,5 @@
 require './spec/spec_helper'
-require '../module/shiftable'
+require './module/shiftable'
 
 class Enigma
 
@@ -10,9 +10,9 @@ class Enigma
               :alphabet
 
   def initialize
-    @alphabet = ("a".."z").to_a << " "
     @key = Key.generate
     @date = Date.today.strftime("%d%m%y")
+    @alphabet = ("a".."z").to_a << " "
   end
 
   def encrypt(message, key = @key, date = @date)
@@ -28,7 +28,7 @@ class Enigma
         value += @alphabet.index(letter) if char == letter
         value
       end
-      encrypted << @alphabet.rotate(letter_index + shift_char(char, index))[0]
+      encrypted << @alphabet.rotate(letter_index.to_i + shift_char(char, index).to_i)[0]
     end
     hash[:encryption] = encrypted
     hash
@@ -60,6 +60,8 @@ class Enigma
       return set_shift(@key_array, @offset)[1] if remainder == 1
       return set_shift(@key_array, @offset)[2] if remainder == 2
       return set_shift(@key_array, @offset)[3] if remainder == 3
+    else
+      return char
     end
   end
 
