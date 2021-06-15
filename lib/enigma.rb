@@ -41,15 +41,15 @@ class Enigma
     hash[:date] = date
     @offset = offset(hash[:date])
     @key_array = key_shift(hash[:key])
-    encrypted = ''
+    decrypted = ''
     message.chars.each_with_index do |char, index|
       letter_index = @alphabet.reduce(0) do |value, letter|
         value += @alphabet.index(letter) if char == letter
         value
       end
-      encrypted << @alphabet.rotate(letter_index - shift_char(char, index))[0]
+      decrypted << @alphabet.rotate(letter_index.to_i - shift_char(char, index).to_i)[0]
     end
-    hash[:decryption] = encrypted
+    hash[:decryption] = decrypted
     hash
   end
 
