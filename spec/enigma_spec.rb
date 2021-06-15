@@ -25,20 +25,6 @@ RSpec.describe Enigma do
   end
 
   describe 'methods' do
-    xit 'can shift characters based on index' do
-      text = ({
-                encryption: "keder ohulw",
-                key: "02715",
-                date: "040895"
-              })
-      char = 'h'
-      index = 0
-      @offset = offset(hash[:date])
-      @key_array = key_shift(hash[:key])
-
-      expect(@enigma.shift_char(char, index)).to eq('k')
-    end
-
     it 'encrypts a message' do
       expected = {
                     encryption: "keder ohulw",
@@ -68,7 +54,7 @@ RSpec.describe Enigma do
       expect(encrypted[:date]).to be_a(String)
 
       decrypted = @enigma.decrypt(encrypted[:encryption], encrypted[:key], encrypted[:date])
-      
+
       expect(decrypted).to be_a(Hash)
       expect(decrypted[:decryption]).to eq("hello world")
       expect(decrypted[:key]).to eq(encrypted[:key])
