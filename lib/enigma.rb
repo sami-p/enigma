@@ -28,7 +28,7 @@ class Enigma
         value += @alphabet.index(letter) if char == letter
         value
       end
-      encrypted << @alphabet.rotate(letter_index.to_i + shift_char(char, index).to_i)[0]
+      encrypted << @alphabet.rotate(letter_index + shift_char(char, index).to_i)[0]
     end
     hash[:encryption] = encrypted
     hash
@@ -47,7 +47,7 @@ class Enigma
         value += @alphabet.index(letter) if char == letter
         value
       end
-      decrypted << @alphabet.rotate(letter_index.to_i - shift_char(char, index).to_i)[0]
+      decrypted << @alphabet.rotate(letter_index - shift_char(char, index).to_i)[0]
     end
     hash[:decryption] = decrypted
     hash
