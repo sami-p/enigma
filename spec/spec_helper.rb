@@ -5,4 +5,4 @@ SimpleCov.add_filter ["spec"]
 require 'date'
 require './lib/key'
 require './lib/enigma'
-require '../module/shiftable'
+require './module/shiftable'
