@@ -9,7 +9,7 @@ incoming_text = handle.read
 
 handle.close
 
-decrypted_text = enigma.decrypt(incoming_text, ARGV[2], ARGV[3])
+decrypted_text = enigma.decrypt(incoming_text.chomp, ARGV[2], ARGV[3])
 
 writer = File.open(ARGV[1], 'w')
 

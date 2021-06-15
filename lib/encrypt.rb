@@ -9,7 +9,7 @@ incoming_text = handle.read
 
 handle.close
 
-encrypted_text = enigma.encrypt(incoming_text, '82648', '240818')
+encrypted_text = enigma.encrypt(incoming_text.chomp, '82648', '240818')
 
 writer = File.open(ARGV[1], 'w')
 
