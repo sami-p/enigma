@@ -60,8 +60,6 @@ class Enigma
       return set_shift(@key_array, @offset)[1] if remainder == 1
       return set_shift(@key_array, @offset)[2] if remainder == 2
       return set_shift(@key_array, @offset)[3] if remainder == 3
-    else
-      return char
     end
   end
 
