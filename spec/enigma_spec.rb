@@ -27,10 +27,10 @@ RSpec.describe Enigma do
   describe 'methods' do
     it 'encrypts a message' do
       expected = {
-                    encryption: "keder ohulw",
-                    key: "02715",
-                    date: "040895"
-                  }
+                  encryption: "keder ohulw",
+                  key: "02715",
+                  date: "040895"
+                 }
 
       expect(@enigma.encrypt("hello world", "02715", "040895")).to eq(expected)
     end
@@ -45,7 +45,7 @@ RSpec.describe Enigma do
       expect(@enigma.decrypt("keder ohulw", "02715", "040895")).to eq(expected)
     end
 
-    it 'can encrypt and decrypt a message without a given key and date' do
+    it 'can encrypt and decrypt a message without a given key and/or date' do
       encrypted = @enigma.encrypt("hello world")
 
       expect(encrypted).to be_a(Hash)
