@@ -1,4 +1,4 @@
-require '../module/shiftable'
+require './module/shiftable'
 require 'spec_helper'
 
 RSpec.describe Shiftable do
